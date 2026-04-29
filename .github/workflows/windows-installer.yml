@@ -77,11 +77,11 @@ jobs:
 
       - name: Create portable ZIP
         run: |
-          Compress-Archive -Path deploy\* -DestinationPath "AetherSDR-${{ github.ref_name }}-Windows-x64-portable.zip"
+          Compress-Archive -Path deploy\* -DestinationPath "AetherSDR-WT2P-Test-Windows-x64-portable.zip"
 
       - name: Create installer (Inno Setup)
         run: |
-          $version = "${{ github.ref_name }}" -replace '^v', ''
+          $version = "WT2P-Test" -replace '^v', ''
           & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" /DAPP_VERSION=$version packaging\windows\installer.iss
 
       - name: Upload artifacts
